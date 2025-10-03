@@ -39,3 +39,44 @@ Shodan Recon Pro is a Python CLI tool that automates passive reconnaissance usin
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+--- 
+
+## Usage 
+```bash
+export SHODAN_API_KEY="your_shodan_api_key_here"
+```
+
+## Basic scan
+```bash
+python3 shodan_recon_pro.py --domains DOMAIN_NAME --api-key YOUR_API_KEY
+```
+
+## Advanced scan with 10 parallel lookups and output folder
+```bash
+python3 shodan_recon_pro.py --domains DOMAIN_NAME,DOMAIN_NAME --api-key YOUR_API_KEY --parallel 10 --outdir scans_oklink
+```
+
+## Disable CVE enrichment
+```bash
+python3 shodan_recon_pro.py --domains DOMAIN_NAME --api-key YOUR_API_KEY --no-cve-enrich
+```
+
+## Common flags:
+
+--domains: comma separated domains (required)
+
+--api-key: Shodan API key (required)
+
+--outdir: output directory (default shodan_recon_out)
+
+--limit: max results per domain from Shodan (default 5000)
+
+--parallel: simultaneous host lookups (default 10)
+
+--sleep: delay between API hits (seconds)
+
+--use-system-tools: use subfinder and dnsx if installed
+
+--no-cve-enrich: skip NVD enrichment (faster)
+
